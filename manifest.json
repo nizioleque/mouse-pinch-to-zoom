@@ -1,0 +1,51 @@
+﻿{
+    "manifest_version": 3,
+
+    "name": "Mouse Pinch-To-Zoom",
+    "description": "Zoom in on a specific part of the website, like you would with a touchpad gesture!",
+    "version": "2.4",
+    "icons": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "permissions": [
+        "storage",
+        "notifications"
+    ],
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "action": {
+        "default_popup": "options/options.html"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content/prep.js"],
+            "all_frames": true,
+            "run_at": "document_start"
+        },
+        {
+            "matches": ["<all_urls>"],
+            "js": [
+                "content/handlers.js",
+                "content/configure.js",
+                "content/iframe.js",
+                "content/scale.js",
+                "content/absolute.js"
+            ],
+            "all_frames": true,
+            "run_at": "document_end"
+        }
+    ],
+
+    "options_ui": {
+        "page": "options/options.html",
+        "open_in_tab": false
+    }
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script src="options.js" defer></script>
+    <link rel="stylesheet" href="options.css">
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <header>
+        <h1>Mouse Pinch-to-Zoom</h1>
+    </header>
+
+    <div id="error" class="info">
+        <p>
+            An error occured! Please refresh the page and try again in a few minutes.
+            <br>
+            If the error persists, please contact me at nizioleque@gmail.com including the error message shown below
+        </p>
+        <p>
+            Error message:
+        </p>
+        <p id="error-msg"></p>
+    </div>
+
+    <div class="info" id="welcome">
+        <p>
+            Thank you for using my extension!
+        </p>
+        <p>
+            If it is helpful and you want to support my work, please
+            <a href="https://www.buymeacoffee.com/nizioleque" target="_blank" rel="noopener noreferrer">
+                <button class="btn-support">
+                    <span class="emoji">🍺</span> Buy me a beer
+                </button>
+            </a>
+            <a href="https://chrome.google.com/webstore/detail/mouse-pinch-to-zoom/pffiadlahfhoniddbipeiiohjnlongfi/reviews"
+                target="_blank" rel="noopener noreferrer">
+                <button class="btn-rate">
+                    <span class="emoji">⭐</span> Rate the extension
+                </button>
+            </a>
+        </p>
+        <p>
+            And if you experience any issues, please
+            <a target="_blank" href="
+        mailto: nizioleque@gmail.com
+?subject=Mouse Pinch-to-Zoom bug report
+&body=PLEASE FILL IN THIS EMAIL TO SEND A BUG REPORT%0D%0A
+%0D%0A
+PROBLEM:%0D%0A
+[describe the problem]%0D%0A
+%0D%0A
+AFFECTED SITES:%0D%0A
+[include links to affected sites]%0D%0A
+%0D%0A
+STEPS TO REPRODUCE:%0D%0A
+[describe the steps to reproduce the problem]%0D%0A
+%0D%0A
+Your feedback will be used to improve the extension. Thank you!
+">
+                <button class="btn-report">
+                    <span class="emoji">📧</span> Send me a bug report
+                </button>
+            </a>
+        </p>
+    </div>
+
+    <div id="welcome-short">
+        <a href="https://www.buymeacoffee.com/nizioleque" target="_blank" rel="noopener noreferrer">
+            <button class="btn-support">
+                <span class="emoji">🍺</span> Support
+            </button>
+        </a>
+        <a href="https://chrome.google.com/webstore/detail/mouse-pinch-to-zoom/pffiadlahfhoniddbipeiiohjnlongfi/reviews"
+            target="_blank" rel="noopener noreferrer">
+            <button class="btn-rate">
+                <span class="emoji">⭐</span> Rate
+            </button>
+        </a>
+        <a target="_blank" href="
+        mailto: nizioleque@gmail.com
+?subject=Mouse Pinch-to-Zoom bug report
+&body=PLEASE FILL IN THIS EMAIL TO SEND A BUG REPORT%0D%0A
+%0D%0A
+PROBLEM:%0D%0A
+[describe the problem]%0D%0A
+%0D%0A
+AFFECTED SITES:%0D%0A
+[include links to affected sites]%0D%0A
+%0D%0A
+STEPS TO REPRODUCE:%0D%0A
+[describe the steps to reproduce the problem]%0D%0A
+%0D%0A
+Your feedback will be used to improve the extension. Thank you!
+">
+            <button class="btn-report">
+                <span class="emoji">📧</span> Report a bug
+            </button>
+        </a>
+    </div>
+
+    <div>
+        <label id="advanced">
+            <input type="checkbox" name="advanced">
+            Show advanced settings
+        </label>
+        <p class="tip">
+            Don't be afraid! They're not that advanced
+        </p>
+    </div>
+
+    <div>
+        <h2>Activation mode</h2>
+        <label>
+            <input type="radio" name="mode" value="0">
+            Alt + Scroll Wheel
+            <p class="tip">
+                Turn the mouse wheel while holding the Alt key to zoom
+                <br>
+                Click the mouse wheel while holding the Alt key to reset
+            </p>
+        </label>
+        <label>
+            <input type="radio" name="mode" value="1">
+            Right Mouse Button + Scroll Wheel
+            <p class="tip">
+                Turn the mouse wheel while holding the right mouse button to zoom
+                <br>
+                Click the mouse wheel while holding the right mouse button to reset
+            </p>
+        </label>
+        <label>
+            <input type="radio" name="mode" value="2">
+            Left Mouse Button + Scroll Wheel
+            <p class="tip">
+                Turn the mouse wheel while holding the left mouse button to zoom
+                <br>
+                Click the mouse wheel while holding the left mouse button to reset
+            </p>
+        </label>
+    </div>
+
+    <div>
+        <h2>Speed</h2>
+        <label>
+            <input type="radio" name="speed" value="0">
+            Slower
+            <span class="setting-value advanced">
+                = 0.3
+            </span>
+            <p class="tip">
+                More precise
+            </p>
+        </label>
+        <label>
+            <input type="radio" name="speed" value="1">
+            Normal
+            <span class="setting-value advanced">
+                = 0.4
+            </span>
+        </label>
+        <label>
+            <input type="radio" name="speed" value="2">
+            Faster
+            <span class="setting-value advanced">
+                = 0.5
+            </span>
+            <p class="tip">
+                Less precise
+            </p>
+        </label>
+        <label class="advanced">
+            <input type="radio" name="speed" value="3">
+            Custom
+            <input class="input-custom" type="number" name="speedCustom" step="0.025" min="0.025" data-setting-name="speed">
+            <div class="tip">
+                <p>
+                    This value is a multiplier for the zoom value
+                </p>
+                <p>
+                    Lower values will make the zoom slower, but more precise
+                    <br>
+                    Recommended if you usually zoom slightly
+                </p>
+                <p>
+                    Higher values will make the zoom faster, but less precise
+                    <br>
+                    Recommended if you usually zoom closely
+                </p>
+            </div>
+        </label>
+    </div>
+
+    <div>
+        <h2>Smoothness</h2>
+        <label>
+            <input type="radio" name="smoothness" value="0">
+            Low
+            <span class="setting-value advanced">
+                = 1
+            </span>
+            <p class="tip">
+                Recommended if you experience lagging
+            </p>
+        </label>
+        <label>
+            <input type="radio" name="smoothness" value="1">
+            Normal
+            <span class="setting-value advanced">
+                = 4
+            </span>
+        </label>
+        <label>
+            <input type="radio" name="smoothness" value="2">
+            High
+            <span class="setting-value advanced">
+                = 6
+            </span>
+            <p class="tip">
+                Might feel less responsive
+            </p>
+        </label>
+        <label class="advanced">
+            <input type="radio" name="smoothness" value="3">
+            Custom
+            <input class="input-custom" type="number" name="smoothnessCustom" step="1" min="1" data-setting-name="smoothness">
+            <div class="tip">
+                <p>
+                    This value is the number of smaller steps each zoom is divided into
+                </p>
+                <p>
+                    Lower values will feel more responsive, but less smooth
+                </p>
+                <p>
+                    Higher values will feel smoother, but less responsive
+                </p>
+                </p>
+        </label>
+    </div>
+
+    <div class="advanced">
+        <h2>Fixes</h2>
+        <p class="tip-h2">
+            Disable them if you experience issues (and please send me a bug report!).
+            <br>
+            A reload is required for the changes to take effect
+        </p>
+        <label>
+            <input type="checkbox" name="fixTouchpadScroll">
+            Fix for touchpad scroll
+            <p class="tip">
+                This fix prevents the extension from being activated by a touchpad gesture, for example when you use Alt+Tab right after scrolling.
+                <br>
+                If the extension is not working with your mouse, disable the fix or decrease the number below.
+                <br>
+                If the extension activates randomly when using a touchpad, increase the value below (eg. to 100)
+            </p>
+        </label>
+        <input type="number" name="fixTouchpadScrollThreshold" step="1" min="1">
+        <label>
+            <input type="checkbox" name="fixFixed">
+            Fix for CSS position fixed and sticky
+            <p class="tip">
+                This fix sets the poition and size of elements with CSS position: fixed or position: sticky and makes
+                them semi-transparent.
+                <br>
+                Mainly applies to navigation bars and menus. Disabling it will cause some elements to move incorrectly
+            </p>
+        </label>
+        <label class="label-sub">
+            <input type="checkbox" name="fixFixedTransparency">
+            Make fixed elements semi-transparent
+            <p class="tip">
+                This will make fixed-positioned elements semi-transparent. Disable if you experience issues with transparent elements.
+            </p>
+        </label>
+        <label>
+            <input type="checkbox" name="fixAbsolute">
+            Fix for CSS position absolute
+            <p class="tip">
+                This fix sets the poition of elements with CSS position: absolute that are added or moved and are
+                outside the visible area.
+                <br>
+                Mainly applies to context menus and tooltips. Disabling it will cause some elements to be positioned incorrectly
+            </p>
+        </label>
+        <label class="label-sub">
+            <input type="checkbox" name="fixAbsoluteBorder">
+            Border around affected elements
+            <p class="tip">
+                This will add a red border to all elements that are affected by this fix
+            </p>
+        </label>
+    </div>
+
+    <div>
+        <h2></h2>
+    </div>
+</body>
+
+</html>

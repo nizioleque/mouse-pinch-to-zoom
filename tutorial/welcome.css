@@ -1,0 +1,150 @@
+:root {
+    --accent-color: #0075FF;
+    --header-bg: linear-gradient(90deg, rgba(0,110,240,1), rgba(65,151,255,1));
+
+    --bg-color: #fff;
+    --tip-color: #505050;
+    --text-color: #000;
+
+    --btn-bg-color: #fff;
+    --btn-color: #000;
+
+    --welcome-bg-color: #ffff94;
+    --welcome-color: #000;
+
+}
+
+.darkmode {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --header-bg: linear-gradient(270deg, hsl(213deg 100% 41%), hsl(213deg 100% 50%));
+
+        --bg-color: #292a2d;
+        --tip-color: #9aa0a6;
+        --text-color: #e8eaed;
+
+        --btn-bg-color: #000;
+        --btn-color: #fff;
+
+        --welcome-bg-color: #424200;
+        --welcome-color: #fff;
+
+    }
+
+    .lightmode {
+        display: none;
+    }
+    .darkmode {
+        display: unset;
+    }
+}
+
+* {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+header {
+    background: var(--header-bg);
+    text-shadow: 0 0 3px rgb(0 0 0 / 60%);
+    box-shadow: 0 0 15px 0px rgb(0 0 0 / 60%);
+    min-height: 200px;
+    position: relative;
+    text-align: center;
+}
+
+.emoji {
+    font-weight: 100;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+body > div {
+    max-width: 800px;
+    margin: 5px auto;
+    padding: 10px 30px;
+}
+
+#attention {
+    background-color: var(--welcome-bg-color);
+    border-radius: 20px;
+}
+
+#attention > div {
+    margin-bottom: 20px;
+}
+
+#attention p {
+    margin: 4px auto;
+}
+
+ul {
+    margin: 0;
+}
+
+.key {
+    display: inline-block;
+    border: 3px var(--text-color) solid;
+    border-radius: 6px;
+    padding: 1px 5px;
+    font-weight: bold;
+}
+
+.mouse {
+    font-weight: bold;
+}
+
+img {
+    vertical-align: middle;
+    padding: 0 5px;
+}
+
+#ext-menu-img {
+    border-radius: 50%;
+}
+
+button {
+    cursor: pointer;
+    display: inline;
+    border: 2px solid var(--accent-color);
+    background-color: transparent;
+    border-radius: 999em;
+    padding: 3px 10px;
+    font-size: 1em;
+    color: inherit;
+    font-weight: bold;
+}
+
+#support button {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.1em;
+
+}
+
+button:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
