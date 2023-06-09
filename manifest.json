@@ -16,7 +16,7 @@
     ],
 
     "background": {
-        "service_worker": "background.js"
+        "scripts": [ "background.js" ]
     },
 
     "action": {
@@ -47,5 +47,11 @@
     "options_ui": {
         "page": "options/options.html",
         "open_in_tab": false
+    },
+    	
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "mouse-pinch-to-zoom@niziolek.dev"
+        }
     }
 }
