@@ -7,7 +7,7 @@ let zoom = 1;
 let triggered = false;
 let lastEvent, nextEvent;
 let configured = false;
-const ID = chrome.runtime.id;
+const ID = 'mouse-pinch-to-zoom'
 
 // default settings values
 let mode = 0, mult = 0.4, steps = 5;
