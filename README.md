@@ -16,9 +16,10 @@ Mouse Pinch-To-Zoom allows you to zoom in and out on a website without making ev
 
 It works like a pinch-to-zoom gesture on a touchpad or a touchscreen, but all you need is a mouse wheel.
 
-The extension offers three activation modes:
+The extension offers four activation modes:
 * Zoom by turning the mouse wheel while holding the Alt key
 * Zoom by turning the mouse wheel while holding the left or right mouse button
+* Zoom by turning the mouse wheel while holding the Ctrl key
 
 You can also customize the speed and smoothness. All the settings are easily accessible by clicking on the extension logo.
 
