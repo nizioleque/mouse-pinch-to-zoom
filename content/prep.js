@@ -71,7 +71,13 @@ const modeListeners = [
 		['mouseup', mode2MouseUpL, {}],
 		['wheel', mode2Wheel, { passive: false }],
 		['mousedown', mode2MouseDownM, { passive: false }]
-	]
+	],
+	[
+		// mode 3 - CTRL
+		['wheel', mode3Wheel, { passive: false }],
+		['mousedown', mode3MouseDown, { passive: false }],
+		['keydown', mode3KeyDown, { passive: false }]
+	],
 ];
 
 // mode set/unset
@@ -167,5 +173,28 @@ function mode2MouseDownM(e) {
 		e.preventDefault();
 		e.stopImmediatePropagation();
 		clickEvent();
+	}
+}
+
+// mode 3 listeners
+function mode3Wheel(e) {
+	if (e.ctrlKey) {
+		e.preventDefault(); // prevents the page from scrolling when the user turns the wheel
+		e.stopImmediatePropagation(); // prevents other listeners from triggering (i'm not sure if it's necessary with preventDefault)
+		scrollEvent(e);
+		mouseEventHandler(e);
+	}
+}
+function mode3MouseDown(e) {
+	if (e.button == 1 && e.ctrlKey && configured) { // button1 is the mouse wheel click (middle mouse button)
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		clickEvent();
+	}
+}
+
+function mode3KeyDown(e) {
+	if (e.code === 'CtrlLeft') {
+		e.preventDefault();
 	}
 }
