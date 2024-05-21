@@ -3,7 +3,7 @@
 
     "name": "Mouse Pinch-To-Zoom",
     "description": "Zoom in on a specific part of the website, like you would with a touchpad gesture!",
-    "version": "2.4",
+    "version": "2.5",
     "icons": {
         "16": "icons/icon16.png",
         "32": "icons/icon32.png",
