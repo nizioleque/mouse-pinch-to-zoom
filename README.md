@@ -2,7 +2,7 @@
 
 Mouse Pinch-To-Zoom is a browser extension which allows you to achieve touchpad or touchscreen zoom effect using a mouse.
 
-Currently available on the [**Chrome Web Store**](https://chrome.google.com/webstore/detail/pffiadlahfhoniddbipeiiohjnlongfi) with over 5,000 users and a 4.7 ⭐ average rating.
+Currently available on the [**Chrome Web Store**](https://chrome.google.com/webstore/detail/pffiadlahfhoniddbipeiiohjnlongfi) with over 10,000 users and a 4.8 ⭐ average rating.
 
 Now also available on [**Add-Ons for Firefox**](https://addons.mozilla.org/en-US/firefox/addon/mouse-pinch-to-zoom/)!
 
@@ -17,9 +17,8 @@ Mouse Pinch-To-Zoom allows you to zoom in and out on a website without making ev
 It works like a pinch-to-zoom gesture on a touchpad or a touchscreen, but all you need is a mouse wheel.
 
 The extension offers four activation modes:
-* Zoom by turning the mouse wheel while holding the Alt key
+* Zoom by turning the mouse wheel while holding the Alt or Ctrl key
 * Zoom by turning the mouse wheel while holding the left or right mouse button
-* Zoom by turning the mouse wheel while holding the Ctrl key
 
 You can also customize the speed and smoothness. All the settings are easily accessible by clicking on the extension logo.
 
