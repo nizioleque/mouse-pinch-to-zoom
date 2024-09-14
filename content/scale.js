@@ -14,7 +14,7 @@ function scale(e, setZoom, scrollX = window.scrollX, scrollY = window.scrollY) {
     zoom = setZoom;
 
     // scale before calculations if zooming in
-    if (zoom > oldZoom) body.style.setProperty('transform', 'scale(' + zoom + ')', 'important');
+    if (zoom > oldZoom) document.body.style.setProperty('transform', 'scale(' + zoom + ')', 'important');
 
     // scroll calculations - width
     const newClientWidth = html.clientWidth;
@@ -37,7 +37,7 @@ function scale(e, setZoom, scrollX = window.scrollX, scrollY = window.scrollY) {
     const offsetHeight = (oldHeight - newHeight) * zoom * mouseMultY + (oldClientHeight - newClientHeight);
 
     // scale after calculations if zooming out
-    if (zoom < oldZoom) body.style.setProperty('transform', 'scale(' + zoom + ')', 'important');
+    if (zoom < oldZoom) document.body.style.setProperty('transform', 'scale(' + zoom + ')', 'important');
 
     // scroll action
     window.scroll(startWidth + offsetWidth, startHeight + offsetHeight); // try deleting/commenting that line to see what happens without scrolling
