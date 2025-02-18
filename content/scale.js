@@ -3,7 +3,7 @@
 'use strict';
 
 // this is the main function which does the scaling (see scrollEvent() first)
-function scale(e, setZoom, scrollX = window.scrollX, scrollY = window.scrollY) {
+function scale(center, setZoom, scrollX = window.scrollX, scrollY = window.scrollY) {
     // save for calculations
     // Workaround for a bug introduced in Chromium 133 - `zoom` is passed as reference and `oldZoom` is changed after changing `zoom`
     const oldZoom = parseFloat(zoom.toString());
@@ -21,8 +21,8 @@ function scale(e, setZoom, scrollX = window.scrollX, scrollY = window.scrollY) {
     // scroll calculations - width
     const newClientWidth = html.clientWidth;
     let mouseMultX;
-    if (!rtl) mouseMultX = e ? e.clientX / newClientWidth : 0.5;
-    else mouseMultX = e ? -(1-(e.clientX / newClientWidth)) : 0.5;
+    if (!rtl) mouseMultX = center ? center.x / newClientWidth : 0.5;
+    else mouseMultX = center ? -(1-(center.x / newClientWidth)) : 0.5;
     const oldWidth = newClientWidth / oldZoom;
     const newWidth = newClientWidth / zoom;
 
@@ -31,7 +31,7 @@ function scale(e, setZoom, scrollX = window.scrollX, scrollY = window.scrollY) {
 
     // scroll calculations - height
     const newClientHeight = html.clientHeight;
-    const mouseMultY = e ? e.clientY / newClientHeight : 0.5;
+    const mouseMultY = center ? center.y / newClientHeight : 0.5;
     const oldHeight = newClientHeight / oldZoom;
     const newHeight = newClientHeight / zoom;
 
@@ -43,7 +43,7 @@ function scale(e, setZoom, scrollX = window.scrollX, scrollY = window.scrollY) {
 
     // scroll action
     window.scroll(startWidth + offsetWidth, startHeight + offsetHeight); // try deleting/commenting that line to see what happens without scrolling
-    // console.log(startWidth, offsetWidth, e.clientX)
+    // console.log(startWidth, offsetWidth, center.x)
 
     // update variables for absolute.js
     lastScrollX = window.scrollX;

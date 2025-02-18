@@ -198,3 +198,26 @@ function mode3KeyDown(e) {
 		e.preventDefault();
 	}
 }
+
+// smart zoom listener
+let lastMiddleClickTime = 0;
+const doubleClickThreshold = 300; // Time in milliseconds
+
+document.addEventListener('mousedown', function(event) {
+  // Check if the middle button was clicked (event.button === 1)
+  if (event.button === 1) {
+    const currentTime = new Date().getTime();
+
+    // Check if the time between clicks is within the double-click threshold
+    if (currentTime - lastMiddleClickTime < doubleClickThreshold) {
+    	event.preventDefault();
+    	if(!!event.target) {
+	    	smartZoomEvent(event);
+    	}
+    }
+
+    // Update the last middle-click time
+    lastMiddleClickTime = currentTime;
+  }
+});
+
