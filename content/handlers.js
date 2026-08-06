@@ -19,13 +19,16 @@ function scrollEvent(e) {
 		return;
 	}
 
+	// invert the wheel delta when the 'reverse scroll direction' setting is enabled
+	const deltaY = e ? (reverseScrollDirection ? -e.deltaY : e.deltaY) : undefined;
+
 	// check zoom
 	// if you're fully zoomed out and try to zoom out further, do nothing
-	if (e && zoom == 1 && e.deltaY > 0) return;
+	if (e && zoom == 1 && deltaY > 0) return;
 
 	// don't zoom if deltaY is small
 	// prevents activtion when using alt+tab after a touchpad scroll
-	if (e && fixTouchpadScroll && Math.abs(e.deltaY) < fixTouchpadScrollThreshold) return;
+	if (e && fixTouchpadScroll && Math.abs(deltaY) < fixTouchpadScrollThreshold) return;
 
 	// set flag
 	triggered = true;
@@ -42,7 +45,7 @@ function scrollEvent(e) {
 
 	// calculate max zoom (max zoom is the target zoom of one mouse wheel move, it's divided into steps to make it smoother)
 	let maxZoom;
-	let newZoom = zoom + zoom * -1 * e.deltaY * 0.01 * mult; // mult is what you can change in the extension settings ('speed' setting)
+	let newZoom = zoom + zoom * -1 * deltaY * 0.01 * mult; // mult is what you can change in the extension settings ('speed' setting)
 	if (newZoom < 1) maxZoom = 1; // don't zoom below 1
 	else if (newZoom > 1000) maxZoom = 1000; // don't zoom to far in because the browser goes crazy
 	else maxZoom = newZoom;
