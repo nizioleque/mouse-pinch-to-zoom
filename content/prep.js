@@ -17,9 +17,10 @@ let fixAbsolute = true;
 let fixAbsoluteBorder = false;
 let fixTouchpadScroll = true;
 let fixTouchpadScrollThreshold = 30;
+let reverseScrollDirection = false;
 
 // read settings from storage
-chrome.storage.sync.get(['mode', 'mult', 'steps', 'fixFixed', 'fixFixedTransparency', 'fixAbsolute', 'fixAbsoluteBorder', 'fixTouchpadScroll', 'fixTouchpadScrollThreshold'], items => {
+chrome.storage.sync.get(['mode', 'mult', 'steps', 'fixFixed', 'fixFixedTransparency', 'fixAbsolute', 'fixAbsoluteBorder', 'fixTouchpadScroll', 'fixTouchpadScrollThreshold', 'reverseScrollDirection'], items => {
 	if (chrome.runtime.lastError) console.error(chrome.runtime.lastError);
 	else {
 		if (items.mult) mult = items.mult;
@@ -32,6 +33,7 @@ chrome.storage.sync.get(['mode', 'mult', 'steps', 'fixFixed', 'fixFixedTranspare
 		if (items.fixAbsoluteBorder !== undefined) fixAbsoluteBorder = items.fixAbsoluteBorder;
 		if (items.fixTouchpadScroll !== undefined) fixTouchpadScroll = items.fixTouchpadScroll;
 		if (items.fixTouchpadScrollThreshold !== undefined) fixTouchpadScrollThreshold = items.fixTouchpadScrollThreshold;
+		if (items.reverseScrollDirection !== undefined) reverseScrollDirection = items.reverseScrollDirection;
 
 		modeSet(mode);
 	}
@@ -46,6 +48,7 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
 		}
 		if (changes.mult) mult = changes.mult.newValue;
 		if (changes.steps) steps = changes.steps.newValue;
+		if (changes.reverseScrollDirection) reverseScrollDirection = changes.reverseScrollDirection.newValue;
 	}
 });
 

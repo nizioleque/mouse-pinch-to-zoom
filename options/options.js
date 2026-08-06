@@ -8,6 +8,8 @@ let settings = {
     smoothness: 1,
     smoothnessCustom: 4,
 
+    reverseScrollDirection: false,
+
     fixTouchpadScroll: true,
     fixTouchpadScrollThreshold: 30,
     fixFixed: true,
@@ -154,6 +156,9 @@ function loadData() {
     // set number inputs
     document.querySelector('input[name="speedCustom"]').value = settings.speedCustom;
     document.querySelector('input[name="smoothnessCustom"]').value = settings.smoothnessCustom;
+
+    // set scroll direction checkbox
+    document.querySelector('input[name="reverseScrollDirection"]').checked = settings.reverseScrollDirection;
 
     // set fixes inputs
     document.querySelector('input[name="fixFixed"]').checked = settings.fixFixed;
